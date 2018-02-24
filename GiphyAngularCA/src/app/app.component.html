@@ -1,0 +1,29 @@
+
+<form #giphyForm="ngForm" (ngSubmit)="search(giphyForm)">
+        <div class="form-group col-md-4">
+          <label>Enter Username</label>
+          <input type="text" name="username" class="form-control" placeholder="input your username here..." required ngModel/>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Enter Search String</label>
+          <input type="text" name="searchString" class="form-control" placeholder="input something here..." required ngModel/>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Enter Number of Elements You want to search</label>
+          <input type="number" name="number" class="form-control"  value="5" ngModel/>
+        </div>
+        <div class="form-group col-md-4">
+          <button type="submit" class="btn btn-success" [disabled]="giphyForm.invalid">Search</button>
+          <button type="button" class="btn btn-primary" (click)="retrieveFavorite(giphyForm)">Get Favorite</button>
+        </div>
+      </form>
+      <br>
+   
+ <div *ngFor="let m of giphyList | paginate: { itemsPerPage: 2, currentPage: p }">
+        <app-welcome-giphy-world [giphyModel]="m" [username]="username"></app-welcome-giphy-world>
+ </div>
+ <pagination-controls (pageChange)="p = $event"></pagination-controls>
+   
+
+
+

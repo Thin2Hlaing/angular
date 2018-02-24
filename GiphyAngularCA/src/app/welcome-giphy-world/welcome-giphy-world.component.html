@@ -1,0 +1,18 @@
+<form #favouriteGiphyForm="ngForm" (ngSubmit)="saveAsFavourite(favouriteGiphyForm)" class="container-fluid">
+   
+               
+  
+  <div class="card" style="width: 20rem;">
+      <img class="card-img-top" [src]="giphyModel.giffyImage" alt="Card image cap">
+      <div class="card-body">
+      <h5 class="card-title">{{giphyModel.description}}</h5>
+       
+         <div *ngIf="giphyModel.favorite!=true">
+          <button type="submit" class="btn btn-primary">Add To Favorite</button>
+        </div> 
+      </div>
+    </div>
+  </form>
+  <br>
+  
+
